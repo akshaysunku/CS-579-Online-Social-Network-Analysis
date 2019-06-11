@@ -11,9 +11,9 @@ import re
 
 
 consumer_key = 'OGUwQXPBCcP8HxORUBhfISgrf'
-consumer_secret = 'FrZZ7BUG1g37WrLpROXrdLCHXV4V4EbdICiEX15k9hWw5rhvDK'
+consumer_secret = 'FrZZ7BUG1g37WrLpROXrdLCHXV4V4EbdICiEX15k9hWw5rhvEL'
 access_token = '2174502762-6LCyy8qbfoaiR2D7CmzgReAkqrUfgqtoMIHmVIB'
-access_token_secret = '3Hz7KQmyHYwRypaheLVcboxwqLv85aOrfmiTGxhhLQ9Qc'
+access_token_secret = '3Hz7KQmyHYwRypaheLVcboxwqLv96aOrfmiTGxhhLQ9Qc'
 
 
 def get_twitter():
