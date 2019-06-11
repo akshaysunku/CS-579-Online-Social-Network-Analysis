@@ -1,0 +1,33 @@
+Collected Data Summary
+-----------------------
+Number of users collected:2637
+
+Number of tweets collected:250
+
+
+Cluster Summary
+----------------
+Number of communities discovered:6
+
+Cluster:1	Number of nodes:629
+Cluster:2	Number of nodes:630
+Cluster:3	Number of nodes:585
+Cluster:4	Number of nodes:400
+Cluster:5	Number of nodes:198
+Cluster:6	Number of nodes:195
+Average number of users per community:439
+
+
+Classification Summary
+-----------------------
+Accuracy = 0.56
+
+Cross Validation Accuracy = 0.5097241067390321
+
+Number of Negative tweets: 26
+Number of Positive tweets: 24
+
+Negative tweet: b'RT This is happening now in plain sight Guess Trump flunked history'
+Positive tweet: b'RT This is despicable The Trump administration is not only ceding America s role as a leader on the human rights of women'
+
+

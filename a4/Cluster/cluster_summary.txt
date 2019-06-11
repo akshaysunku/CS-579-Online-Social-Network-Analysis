@@ -1,0 +1,10 @@
+Number of communities discovered:6
+
+Cluster:1	Number of nodes:629
+Cluster:2	Number of nodes:630
+Cluster:3	Number of nodes:585
+Cluster:4	Number of nodes:400
+Cluster:5	Number of nodes:198
+Cluster:6	Number of nodes:195
+Average number of users per community:439
+

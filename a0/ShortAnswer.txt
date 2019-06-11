@@ -1,0 +1,81 @@
+Enter your responses inline below and push this file to your private GitHub
+repository.
+
+
+1. Assume I plan to use the friend_overlap function above to quantify the
+similarity of two users. E.g., because 238 is larger than 1, I conclude that
+Jill Stein and Gary Johnson are more similar than Hillary Clinton and Donald
+Trump.
+
+How is this approach misleading? How might you fix it?
+
+Answer:
+
+Old method:
+Number of common friends between two candidates
+
+New method:
+Similarity between users = (Number of common friends between two candidates)/(Sum of total number of friends of each candidate)
+
+Similarity(Jill Stein, Gary Johnson) = 237/(1642+3509) = 0.046
+
+Similarity(Hillary Clinton, Donald Trump) = 2/(783+45) = 0.002
+
+By this method we still see that Jill Stein and Gary Johnson are more similar than Hillary Clinton and Donald Trump
+
+
+
+
+
+
+2. Looking at the output of your followed_by_hillary_and_donald function, why
+do you think this user is followed by both Hilary Clinton and Donald Trump,
+who are rivals? Do some web searches to see if you can find out more
+information.
+
+Answer:
+
+Both Hillary Clinton and Donald Trump follow the "WhiteHouse" as both the candidates were contesting to become the President of the
+United States of America and so following the WhiteHouse will allow them to be updated about the administration of the country.
+
+Donald Trump follows the Vice President, Mike Pence as both of them are of the Republic party and Hillary Clinton who is a Democrat
+also follows the Vice President to be updated about the actions of the Republicans as she does not follow Donald Trump. So the only
+option would be to follow the Vice President.
+
+
+
+
+
+
+3. There is a big difference in how many accounts each candidate follows (Gary
+Johnson follows over 3K accounts, while Donald Trump follows less than
+50). Why do you think this is? How might that affect our analysis?
+
+Answer:
+
+This difference might be because Gary Johnson might be a active user and Donald Trump might not be an active user of twitter.
+A quick glance of the twitter accounts followed by Donald Trump shows that he only follows his family members and the twitter accounts
+of his estates. This could affect our analysis as there is an incomplete data about Donald Trump and incorrect facts could be
+predicted due to the lack of data.
+
+
+
+
+
+4. The follower graph we've collected is incomplete. To expand it, we would
+have to also collect the list of accounts followed by each of the
+friends. That is, for each user X that Donald Trump follows, we would have to
+also collect all the users that X follows. Assuming we again use the API call
+https://dev.twitter.com/rest/reference/get/friends/ids, how many requests will
+we have to make? Given how Twitter does rate limiting
+(https://dev.twitter.com/rest/public/rate-limiting), approximately how many
+minutes will it take to collect this data?
+
+Answer:
+
+Jill Stein has 1644 followers, Gary Johnson has 3511 followers, Hillary Clinton has 784 followers and Donald Trump has 45 followers
+totaling to 5984 followers. 273 out of 5984 are followed by more than one candidate and one request will be sufficient to fetch data
+resulting in 5711 requests to be made.
+
+The twitter rate limiting window allows 15 requests per window session.
+So 5711/15, i.e. we would need 380 window sessions to fetch all the data, which will take approximately 5700 minutes to collect the data.

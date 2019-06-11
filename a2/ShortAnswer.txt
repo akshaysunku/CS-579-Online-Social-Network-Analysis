@@ -1,0 +1,70 @@
+﻿1. Looking at the top errors printed by get_top_misclassified, name two ways you would modify your classifier to improve accuracy (it could be features, tokenization, or something else.)
+
+i. We can use large amount of data to train the Classifier.
+ii. We can find that the frequency for stop words is high when compared to the other words. Hence removal of stop words before training will help increase accuarcy.
+iii. Negative reviews can be predicted positive due to sarcasm. So identifying these things will help improve accuracy
+iv. Adding more number of positive words and negative words to the pos_words and neg_words list respectively.
+v. We can use the technique of Lemmatization which is a process of normalizing the terms to their root forms. For example, the words 'enjoy', 'enjoyed', 'enjoying' can be normalized to the root word 'enjoy'.
+vi. Varying the min_freq 
+
+
+
+
+2. Implement one of the above methods. How did it affect the results?
+
+The implementation is provided in the file a2.py, remove the comments where specified to execute the implemented code
+
+By adding more positive and negative words, performing Lemmatization and using min_freq = 3
+the following are the results
+
+best cross-validation result:
+{'punct': False, 'features': [<function token_pair_features at 0x0000022485A05840>, <function lexicon_features at 0x0000022485A05598>], 'min_freq': 3, 'accuracy': 0.7925000000000001}
+worst cross-validation result:
+{'punct': False, 'features': [<function lexicon_features at 0x0000022485A05598>], 'min_freq': 2, 'accuracy': 0.6599999999999999}
+
+Mean Accuracies per Setting:
+features= token_pair_features lexicon_features: 0.76313
+features= token_features token_pair_features lexicon_features: 0.75938
+features= token_features token_pair_features: 0.73906
+features= token_pair_features: 0.73219
+punct=False: 0.72580
+min_freq=3: 0.72357
+min_freq=2: 0.72304
+min_freq=5: 0.71857
+punct=True: 0.71205
+min_freq=10: 0.71054
+features= token_features lexicon_features: 0.69094
+features= token_features: 0.68656
+features= lexicon_features: 0.66125
+
+TOP COEFFICIENTS PER CLASS:
+negative words:
+neg_words: 0.75776
+token_pair=the__worst: 0.37227
+token_pair=is__so: 0.34171
+token_pair=look__like: 0.33731
+token_pair=about__the: 0.28759
+
+positive words:
+pos_words: 0.47963
+token_pair=and__it: 0.25759
+token_pair=it__is: 0.24108
+token_pair=it__a: 0.23850
+token_pair=i__think: 0.23552
+testing accuracy=0.755000
+
+TOP MISCLASSIFIED TEST DOCUMENTS:
+truth=1 predicted=0 proba=0.9975552016301066
+There I was on vacation when my host suggested we take in this B-Movie festival in Breda. I was resistant, as I hadn't gone on the trip to sit in a movie theater, but I've got to admit that I don't regret a second of this one (especially with Stephen Malkmus' contribution). It probably helped that I had no idea what to expect.<br /><br />SEA OF DUST starts out like a typical costume drama. We've got a young medical student going to help a doctor whose town is being destroyed by a crazy plague (which somehow involves exploding heads). On the way, he stops to visit his fiancé and gets thrown off the property by her father. Traveling on, he finds a girl lying on the road, another plague victim, and takes her along to the doctor's. Yawn, I thought. It all seemed pretty predicable.<br /><br />And then everything went crazy and it suddenly turned into a completely different film. Tom Savini shows up looking like Dracula, characters begin traveling to "the other side" of reality, and the dialog gets increasingly humorous.<br /><br />And just when I thought it had settled into a groove, the picture changes again, becoming really dark and bizarre. I won't spoil it for first time viewers, but there's an amazing sequence about hollow people, lots of chat about the abuse of religion by society, and some over-the-top gore effects. And did I mention Stephen Malkmus? This isn't a perfect movie (in case you haven't figured that out from its appearance at a B-Movie festival), but it's well worth the time for adventurous viewers. Great visuals, cool soundtrack, lots of interesting ideas. The acting is a little zany at times, but I think that's the point.<br /><br />Funny I had to go to Breda to see find an American picture that looked like a British horror movie. You figure that one out...
+
+truth=1 predicted=0 proba=0.9936113788752962
+In defense of this movie I must repeat what I had stated previously. The movie is called Arachina, it has a no name cast and I do not mean no name as in actors who play in little seen art house films. I mean no name as in your local high school decided to make a film no name and it might have a 2 dollar budget. So what does one expect? Hitchcock?<br /><br />I felt the movie never took itself seriously which automatically takes it out of the worst movie list. That list is only for big budget all star cast movies that takes itself way too seriously. THe movie The Oscar comes to mind, most of Sylvester Stallone's movies. THe two leads were not Hepburn and Tracy but they did their jobs well enough for this movie. The woman kicked butt and the guy was not a blithering idiot. The actor who played the old man was actually very good. The man who played anal retentive professor was no Clifton Webb but he did a god job. And the Bimbo's for lack of a better were played by two competent actors. I laughed at the 50 cent special effects. But that was part of the charm of the movie. It played like a hybrid Tremors meets Night of the Living Dead. The premise of the movie is just like all Giant Bug movies of the 50's. A Meteor or radiation stir up the ecosystem and before you know it we have Giant Ants, Lobsters, rocks or Lizards terrorizing the locals. A meteor was the cause of the problems this time. I was was very entertained. I didn't expect much and I go a lot more then I bargained for.
+
+truth=1 predicted=0 proba=0.9928023745881379
+Being a freshman in college, this movie reminded me of my relationship with my mom. Of course, my situation doesn't parrallel with Natalie Portman and Surandon's situation; but my mom and I have grown up with the typical mother and daughter fights. There is always the mother telling you what to do, or not being the kind of mother you want to be. I was balling my eyes at the end of this movie. Surandon's reaction of her daughter going to the East coast, miles away, after all they've been through reminded me of how I felt, being from a small city in the West coast, going to New York. <br /><br />The movie is meant for women who have children that are now all grown up. It is very touching, I was moved by the movie. Every feeling out of the characters in this movie was utterly real, you didn't get any phony sentimentality. I was sitting through the credits at the screening of this movie, alone, wishing my mother was sitting next to me so I could hug her and thank her for everything. This movie is a bit corny of course, but everything is trully momentous. Its all about what a mom can learn from her child; and what a child learns from her mother. 8/10
+
+truth=1 predicted=0 proba=0.9913789171589147
+I went into this film expecting a slasher, and while Mute Witness does take influence from said style of film-making, this is much more than just your average slash flick. There are a number of thrillers that focus on a certain disability - blindness is more common (Blind Terror, Wait Until Dark, Cat o'Nine Tails to name a handful), but the implications of having a mute lead in a thriller such as this are well portrayed, and actually integral to the plot as the fact that the lead character can't speak is often the reason why she finds herself in dangerous situations that would be easy for anyone else to get out of. Our mute witness is Billy Hughes, a make-up artist working on a horror film production at a studio in Moscow. She finds herself locked in after hours one night, and after attempting to phone her sister for help, she stumbles upon what at first appears to be the making of an illicit sex flick, but soon turns out to be a snuff movie! She tries to convince the authorities of what she's seen, but finds that no one believes her story...<br /><br />Recently Hostel made the headlines for showing snuff movie making in a foreign country, but this film did it first and actually does a better job. It's maybe not quite as nasty as Eli Roth's opus, but the gore is more effective, and since director Anthony Waller (who went on to direct one of my favourite modern thrillers with 'The Guilty') implements a good sense of humour into the proceedings, Mute Witness is both sufficiently gory and fun to watch. The director certainly has a talent for crafting suspenseful thrill rides, as this one never stands still. The plot is put into action quickly, and Waller constantly introduces plot twists which give a big helping hand to the overall entertainment value of the film. The acting isn't bad for a B-movie, with young performers Marina Zudina, Fay Ripley and Evan Richards delivering good performances. The atmosphere is gritty, and the Russian locations are suitably unfriendly, which helps the film to retain a foreboding atmosphere. Overall, Mute Witness is a much better film than you might expect it to be. The plot flows well, and the atmosphere and tension are spot on.
+
+truth=0 predicted=1 proba=0.982766103409386
+In 1932, Humphrey Bogart was a relative unknown--an unproven actor who was starring in one of his first films. And, because he was an unknown, the movie they gave him was clearly a B-movie--a quick film with relatively low expectations. After seeing it, I could see why it would still take Bogart many more years AND another film studio before he became a household name. While the film isn't terrible, it certainly isn't good--making it more of a curiosity than anything else when seen today.<br /><br />Bogart is a pilot who has dreams of building his own aircraft engine company. However, when a vacuous rich playgirl comes his way, his dreams all seem to go on hold. As one of the characters in the film said, the combination of the two is like oil and water--they just don't mix.<br /><br />While Bogart is throwing away his promising career, his sister is going full speed on the Road to Skankville--having met a sleazy guy who convinces her to sleep with rich guys so they can shake them down for tons of cash! Bogey has no idea his sister ISN'T the actress she claims to be and doesn't realize later that the rich woman he loves leaves him for the same guy whose mistress is....Bogart's SISTER!!! All this leads up to a finale that is reasonably enjoyable. However, what follows is one of the dumbest scenes I have watched in a very long time! By now, the rich lady is not going to marry the guy sleeping with Bogey's sister (whew!) but because she's now poor and no good for Bogart, she's about to fly away and kill herself. Bogey finds out, chases the plane on foot, jumps on the plane as it's taking off and crawls up the fuselage to take control of the plane and save her!!! This is so utterly silly and ridiculous, I found myself laughing out loud. Up until then, I might have scored it a 4 or 5--this sunk the movie to a 3 (how one reviewer gave this an 8 is beyond me).<br /><br />The bottom line is that this was a talking and silly film. On top of that, it's all wrong for Bogart, as the action hero at the end and the simpering lover are horrible matches for his persona that was so wonderfully created in the early 40s. Manly and solid better suits the man--one of America's great actors but clearly out of his element here.<br /><br />By the way, those who love Pre-Code films and their very adult sensibilities may want to see this one. Practically everyone in the film believes in and practices pre-marital sex and Bogey curses in the film--things you never would have seen after the toughened and more moralistic Production Code was adopted in 1934.

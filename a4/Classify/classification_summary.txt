@@ -1,0 +1,10 @@
+Accuracy = 0.56
+
+Cross Validation Accuracy = 0.5097241067390321
+
+Number of Negative tweets: 26
+Number of Positive tweets: 24
+
+Negative tweet: b'RT This is happening now in plain sight Guess Trump flunked history'
+Positive tweet: b'RT This is despicable The Trump administration is not only ceding America s role as a leader on the human rights of women'
+

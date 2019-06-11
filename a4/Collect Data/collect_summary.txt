@@ -1,0 +1,4 @@
+Number of users collected:2637
+
+Number of tweets collected:250
+

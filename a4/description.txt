@@ -1,0 +1,52 @@
+DESCRIPTION
+-----------
+
+This assignment involves 4 different tasks.
+
+1. Collection of Data
+----------------------
+Here in this task the goal is to collect the data from any of the sources for using it to further tasks i.e. clustering 
+and classification. The file does the following.
+  i. Establish the Twitter connection for API calls.
+ ii. Collect 20 friends of Cristiano Ronaldo by making the API request.
+iii. Collect a maximum of 200 friends for each of the 20 friends of Cristiano Ronaldo.
+ iv. Store the results as a dictinoary of lists.
+  v. Dump the dictionary into a pickle file 'friends.pkl'
+ vi. For classification task I have collected 250 tweets on Donald Trump and cleaned them.
+vii. The cleaned tweets are manually annotated 'tweets.csv' for negative and positive sentiment and stored in two files  
+     'train.csv' with 200 tweets for training and 'test.csv' with 50 tweets for testing. 
+viii.Write the summary of the collected data into a text file 'collect_summary.txt'
+
+
+2. Clustering
+--------------
+  i. The data collected in the previous phase is read (friends.pkl) and an undirected graph is created between two friends.
+ ii. The graph consist of approximately 2637 nodes and 2808 edges. Since it is a huge graph it takes a lot of time to run.
+iii. The initial graph is saved as 'Original Graph.png'
+ iv. From this initial graph the nodes with degree < min_degree can be removed from the sub_graph function.
+  v. Community Detection algorithm (Girvin Newman) is applied on the resulting graph to from communities.
+ vi. The clustered graph is saved as 'Clustered Graph.png' 
+vii. Write the clustering summary into a text file 'cluster_summary.txt' 
+
+
+ 3. Classification
+ ------------------
+   i. The data collected in the previous phase is read (train.csv & test.csv) and a list of training data, labels and 
+      testing data, labels is created.
+  ii. The tweets are manually annotated where 0 indicates negative and 1 indicates positive sentiment.
+ iii. The training data is vectorized using TfidfVectorizer() and stop words are removed to get the csr matrix for training data.
+  vi. The testing data is vectorized TfidfVectorizer() and stop words are removed to get the csr matrix for testing data.
+   v. The LogesticRegression() model is used to fit the training data.
+  vi. The prediction for sentiment is made on the testing data and accuracy is calculated.
+ vii. Cross Validation is performed to check if it gives better results and the mean of the accuracies is calculated.
+viii. Write the classification summary into a text file 'classificatio_summary.txt'
+
+4. Summarize
+-------------
+i. The summary results from the previous 3 phases are read and written into a new text file 'summary.txt' 
+
+
+During the process I noticed that removing the stopwords increased the accuracy. Another major problem was that there are a lot of negative 
+tweets when compared to the number of positive tweets. Another issue was that there were many tweet about the Trump's family members. So 
+I had to ignore those tweets. Some of the tweets speak negative about one candidate and positive about another candidate, so it would 
+be confusing for the classifier a the tweets would contain both postive and negative sentiment.
